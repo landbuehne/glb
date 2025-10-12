@@ -1,0 +1,24 @@
+{
+  "profile": {
+    "name": "G'freeser Landbühne e.V.",
+    "tagline": "Veranstaltungen und Events für Gefrees und Umgebung",
+    "gravatarEmail": "gfreeserlandbuehne@gmail.com  ",
+    "bio": "G'freeser Landbühne e.V. - Veranstaltungen und Events für Gefrees und Umgebung"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/gfreeserlandbuehne",
+    "instagram": "https://www.instagram.com/gfreeserlandbuehne/"
+  },
+  "links": [
+    {
+      "title": "G'freeser Landbühne e.V. - die Homepage",
+      "url": "https://www.gfreeserlandbuehne.de"
+    }
+  ],
+  "contact": {
+    "buttonText": "Schreibt uns!",
+    "url": "https://github.com/gfreeserlandbuehne/mathetos.github.io/contact.html"
+  },
+  "theme": "dark",
+  "gravatarHovercard": false
+} 
