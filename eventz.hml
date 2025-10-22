@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weiterleitung …</title>
+  <script>
+    // Zieladresse (immer sauber, ohne fbclid)
+    const target = "https://eventfrog.de/de/events.html?searchTerm=landbuehne";
+
+    // Falls fbclid in der URL hängt, ignorieren und direkt weiterleiten
+    (function() {
+      try {
+        const current = new URL(window.location.href);
+        current.searchParams.delete('fbclid'); // falls vorhanden, entfernen
+      } catch(e) {}
+      window.location.replace(target); // sofort weiterleiten
+    })();
+  </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0; URL=https://eventfrog.de/de/events.html?searchTerm=landbuehne">
+  </noscript>
+</head>
+<body>
+  <p>Weiterleitung zu <a href="https://eventfrog.de/de/events.html?searchTerm=landbuehne">eventfrog.de</a> …</p>
+</body>
+</html>
