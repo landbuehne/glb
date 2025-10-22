@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Weiterleitung …</title>
+<script>
+(function(){
+  // Ziel (ohne fbclid)
+  const target = "https://eventfrog.de/de/events.html?searchTerm=landbuehne";
+
+  // 1) Falls Facebook fbclid an DIESEN Link gehängt hat, entfernen wir ihn aus der URL-History
+  const u = new URL(window.location.href);
+  if (u.searchParams.has('fbclid')) {
+    u.searchParams.delete('fbclid');
+    // replaceState damit die URL in der Adresszeile ohne fbclid steht
+    window.history.replaceState({}, document.title, u.pathname + u.search);
+  }
+
+  // 2) Sicherheitsnetz: nochmal sicherstellen, dass kein fbclid in der Ziel-URL landet
+  // (erst bauen, dann navigieren)
+  const cleanTarget = (() => {
+    const t = new URL(target);
+    t.searchParams.delete('fbclid');
+    return t.toString();
+  })();
+
+  // leichte Verzögerung verhindert Race-Conditions in manchen Facebook-Apps
+  setTimeout(() => window.location.replace(cleanTarget), 50);
+})();
+</script>
+<noscript>
+<meta http-equiv="refresh" content="0; URL=https://eventfrog.de/de/events.html?searchTerm=landbuehne">
+</noscript>
+</head>
+<body>
+<p>Weiterleitung… Falls das nicht klappt, <a href="https://eventfrog.de/de/events.html?searchTerm=landbuehne">hier klicken</a>.</p>
+</body>
+</html>
